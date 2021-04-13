@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+<br>
+<br>
+<br>
+<div class="event_view">
+    <div class="event_view_content">
+        <div class="event_view_headline">{{event.headline}}</div>
+        <hr class="event_view_hr">
+        <img class="event_view_img" src="{{event.image.url}}">
+        <div class="event_view_loc-date">
+            <p>Date of the Event: <i>{{event.date}}</i></p>
+            <p>Location of the event: <i>{{event.location}}</i></p>
+        </div>
+        <div class="event_view_descrition">
+            <h4><u>Description</u></h4>
+            <p >{{event.description}}</p>
+        </div>
+        </div>
+    <a href="{% url 'events' %}"><button class="float_back_button">Back</button></a>
+</div>
+
+
+
+
+
+{% endblock %}

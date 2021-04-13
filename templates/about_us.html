@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% block content%}
+{% load static %}
+<br>
+<br>
+<br>
+<div class="content_about_us" >
+    <br>
+   <h1 class="secondary-color">&#xf124; Where we are located</h1>
+    <br>
+    <img src="{% static 'images/baringo.png' %}"  class="img_about_us">
+
+    <div class="row">
+    <div class="columns_about_us">
+        <img src="{% static 'images/news.jfif' %}">
+        <p>&#10004;All local news</p>
+        <p>&#10004;Get updated</p>
+        <p></p>
+    </div>
+    <div class="columns_about_us">
+        <img src="{% static 'images/upcoming_event.png' %}">
+         <p>&#10004;Upcoming events</p>
+        <p>&#10004;Events news on time</p>
+    </div>
+        <div class="columns_about_us">
+            <img src="{% static 'images/adverts.jfif' %}">
+         <p>&#10004;Download documents</p>
+        <p>&#10004;And others!!</p>
+    </div>
+    </div>
+    <br>
+    <hr style="height:3px;background-color:#17682f;width:100%;margin:0 auto;">
+    <h3 class="secondary-color">About the Developer</h3>
+    <div style="background-color:grey;padding:20px;">
+    <div class="about_developer">
+
+        <div class="about_developer_content">
+        <img src="{% static 'images/developer.jfif' %}"  alt="developer picture">
+            </div>
+        <div class="about_developer_content">
+        <h3>About Developer here</h3>
+        <h45>skills</h45>
+        <h5>and achievements</h5>
+        <p>a graduate at Taita taveta University</p>
+            </div>
+        </p>
+    </div>
+        </div>
+    <footer>
+			<br>
+			<div id="social-media">
+						<ul id="social-mediaimg-list">
+							<li><a href=""><img src="{% static 'images/facebook.png' %}"></a></li>
+							<li><a href=""><img src="{% static 'images/twitter.png' %}"></a></li>
+							<li><a href=""><img src="{% static 'images/whatsapp.png' %}"></a></li>
+							<li><a href=""><img src="{% static 'images/instagram.png' %}"></a></li>
+							<li><a href=""><img src="{% static 'images/youtube.png' %}"></a></li>
+						</ul>
+				</div>
+				<div>
+			<h3><i>&copy sg website.com</i></h3>
+			</div>
+
+</footer>
+</div>
+
+{% endblock%}

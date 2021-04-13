@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+<body>
+<br>
+<br>
+<br>
+<p>{{city_weather.city}}</p>
+<p>{{city_weather.temperature}}°F</p>
+<p>{{city_weather.description}}</p>
+<img src="http://openweathermap.org/img/w/{{city_weather.icon}}.png" alt="weather Image">
+</body>
+</html>
+{% endblock %}

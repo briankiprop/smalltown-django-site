@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html>
+<head>
+	<title>SG WEBSITE</title>
+	<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+	<link rel="icon" href="{% static 'favicon/favicon.ico' %}">
+<script>
+var header = document.getElementById("header-list");
+var btns = header.getElementsByClassName("disabled");
+for (var i = 0; i < btns.length; i++) {
+  btns[i].addEventListener("click", function() {
+  var current = document.getElementsByClassName("active");
+  if (current.length > 0) {
+    current[0].className = current[0].className.replace(" active", "");
+  }
+  this.className += " active";
+  });
+}
+</script>
+</head>
+<header>
+	<ul id="header-list">
+		<li><a class="disabled" href="{% url 'home_page' %}">HOME</a></li>
+		<li><a class="disabled" href="{% url 'about_us' %}">ABOUT US</a></li>
+		<li><a class="disabled" href="{% url 'news' %}">NEWS</a></li>
+		<li><a class="disabled" href="{% url 'events' %}">EVENTS</a></li>
+	</ul>
+</header>
+<body>
+
+
+{% block content %}
+
+{% endblock %}
+
+</body>
+
+</html>

@@ -1,0 +1,100 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+	<div id="background-img">
+
+		<img src="{% static 'images/sglogo.png' %}" id="logo-img">
+	</div>
+
+		<div id="content">
+			<div id="columns-creator">
+				<div class="row">
+					<div id="columns1">
+						<h3 class="secondary-color">NOTICE !!</h3>
+						<hr>
+						{% for notice in notices %}
+						<div class="row">
+							<div class="columns1_pdf">
+								<img src="{% static 'images/pdf_file.png' %}" style="width:100%;">
+							</div>
+								<div class="columns1_pdf_desc">
+									<div >
+									<a href="{{notice.pdf_file.url}}" class="link_clean" download><u><p>{{notice.description}}</p></u></a>
+									</div>
+								</div>
+							</div>
+						{% endfor %}
+						<h3 class="secondary-color">Today's weather</h3>
+						<hr>
+						<div id="weather_content">
+						<h3>Weather in {{city_weather.city}}, Kenya</h3>
+								<p><img src="http://openweathermap.org/img/w/{{city_weather.icon}}.png" alt="weather Image"></p>
+						<p>Local Time<i>{{city_weather.time_now}}</i></p>
+								<hr>
+						<p>Temparature<i>{{city_weather.temperature}}°F</i></p>
+								<hr>
+						<p>Description<i>{{city_weather.description}}</i></p>
+								<hr>
+						</div>
+					</div>
+					<div id="columns2">
+						<h3 class="secondary-color">News & Updates </h3>
+						<hr>
+						<br>
+						<h4 ><a href="{% url 'news' %}" class="read-all">Read All News &#8594</a></h4>
+						<br>
+						<div id="column2_news_random">
+							<div id="container0">
+								<img src="{{item.image.url}}" id="container0_img">
+								<a href="news_view/{{item.id}}" class="link_clean">
+									<h2 class="secondary-color"><center>{{item.headline}}</center></h2>
+								</a>
+									<p class="container_body">{{item.body|truncatewords:50}}</p>
+							</div>
+						</div>
+						<div id="columns2-news">
+								{% for new in news %}
+									<img src="{{new.image.url}}" alt="news" id="columns2-news_img">
+										<a href="news_view/{{new.id}}" class="link_clean"><h2  class="secondary-color">{{new.headline}}</h2></a>
+									<p class="container_body">{{new.body|truncatewords:13}}</p>
+									<p id="container_date">Published On {{new.date_time}}</p>
+									<a href="news_view/{{new.id}}"><p id="container_readmore"><i><b>Read more &#8594</b></i></p></a>
+									<hr style="width:100%;">
+									<br>
+								{% endfor%}
+							<a href="{% url 'news' %}"><button id="column2_news_button">SEE MORE >></button></a>
+
+				</div>
+			</div>
+		</div>
+					<!-- events in home -->
+						<div class="horizontal_scroll_container">
+							<h3 class="secondary-color">EVENTS</h3>
+							<hr>
+							<br>
+							<!-- this are buttons to be added
+							<button id="scroller" ><b><</b></button>
+							<button id="scroller2" ><b>></b></button>
+						     -->
+
+								<div class="scroll_container"><div class="row">
+								{% for event in events %}
+								<div class="items_width">
+									<div class="row">
+								<div class="scroll_items">
+									<h3 class="home_events_date">Date: {{event.date}}</h3>
+									<p class="home_events_headline"><i>Event:</i> {{event.headline}}</p>
+									<a href="event_view/{{event.id}}" class="link_clean" style="float:right;height:40px;padding:5px;">
+										<h4 class="primary-color-dark" >VIEW FULL &#8594</h4>
+									</a>
+								</div>
+									</div>
+								{% endfor %}
+								</div>
+							</div>
+
+						</div>
+						</div>
+		</div>
+		</div>
+{% endblock %}

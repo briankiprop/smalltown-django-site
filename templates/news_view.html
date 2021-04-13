@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+<br>
+<br>
+<br>
+	<div class="news_view_content">
+	<p><h3>{{news_view.headline}}</h3></p>
+	<hr class="hr_news_view">
+	<p class="date_author">{{news_view.date_time}} / {{news_view.author}}</p>
+	<p></p>
+	<img src="{{news_view.image.url}}" alt="news">
+	<p class="news_view_body_content">{{news_view.body}}</p>
+	<a href="{% url 'news' %}"><button class="float_back_button">Back</button></a>
+	</div>
+{% endblock %}

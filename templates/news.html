@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% block content%}
+{% load static%}
+<br>
+<br>
+<br>
+<div class="news_content">
+	<div class="row" style="">
+		<div class="news_columns" >
+			<div class="title_border">
+		<p>Welcome To The World Of News</p>
+	</div>
+			{% for new in news %}
+			<div style="background-color:black;">
+			<img src="{{new.image.url}}" alt="news" >
+			</div>
+			<div class="news_columns-container">
+				<p><h3 style="font-size:50px;" class="secondary-color">{{new.headline}}</h3></p>
+					<br>
+				<p style="font-size:20px;color:black;">{{new.body|truncatewords:50}}</p>
+				<br>
+				<p style="font-size:30px;color:grey;">{{new.date_time}} / by {{new.author}}</p>
+				<br>
+				<a href="news_view/{{new.id}}" class="link_clean"><button class="button_readmore_news" type="submit" >Read more</button></a>
+			</div>
+			<br>
+			{% endfor %}
+		</div>
+		<div class="news_columns2">
+			<div class="title_border">
+			<p>Latest News & Updates</p>
+			</div>
+			{% for new in news_latest %}
+			<div class="row">
+			<div class="latest_5_newsimg">
+			<img src="{{new.image.url}}"  alt="news">
+			</div>
+			<div class="latest_5_newscontent">
+				<p >{{new.date_time}} / by {{new.author}}</p>
+				<a href="news_view/{{new.id}}" class="link_clean">
+				<h3  class="secondary-color">{{new.headline}}</h3></p>
+				</a>
+				</div>
+				</div>
+			<hr>
+			{% endfor %}
+		</div>
+	</div>
+	</div>
+{% endblock%}

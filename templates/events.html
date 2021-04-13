@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% load static%}
+{% block content%}
+<br>
+<br>
+<br>
+
+<div class="content_events">
+    <div class="hrimg_content">
+        <hr class="hr_events_left">
+        <img src="{% static 'images/upcoming_event.png' %}" class="hr_img">
+        <hr class="hr_events_right">
+    </div>
+    {% for event in events %}
+    <div class="columns_events">
+        <h3 class="columns_events_date"><img src="{% static 'images/calendar.png' %}" alt="events" style="object-fit:contain;height:25px;width:20px;float:left;opacity:0.6;margin-right:5px;">{{event.date}}</h3>
+        <p class="columns_events_location">
+            <img src="{% static 'images/location.jpg' %}" alt="events" style="height:25px;width:25px;float:left;">
+            {{event.location}}
+        </p>
+        <h3 class="columns_events_headline">{{event.headline}}</h3>
+        <img src="{{event.image.url}}" class="columns_events_img">
+        <div class="columns_events_footer">
+        <a href="event_view/{{event.id}}" class="link_clean"> <h4 class="primary-color-dark" >VIEW FULL &#8594</h4></a>
+        </div>
+    </div>
+    {% endfor %}
+
+</div>
+{% endblock %}
